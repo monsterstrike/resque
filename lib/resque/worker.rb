@@ -280,7 +280,7 @@ module Resque
 
     # Reports the exception and marks the job as failed
     def report_failed_job(job,exception)
-      log_with_severity :error, "#{job.inspect} failed: #{exception.inspect}"
+      log_with_severity :warn, "#{job.inspect} failed: #{exception.inspect}"
       begin
         job.fail(exception)
       rescue Object => exception
